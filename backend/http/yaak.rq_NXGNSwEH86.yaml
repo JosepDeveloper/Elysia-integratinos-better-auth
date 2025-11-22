@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_NXGNSwEH86
 createdAt: 2025-11-22T22:03:34.798288373
-updatedAt: 2025-11-22T22:20:55.495061653
+updatedAt: 2025-11-22T22:49:58.491064356
 workspaceId: wk_MA9Wsx2aeb
 folderId: fl_JLiQoR4wir
 authentication: {}
@@ -10,8 +10,8 @@ authenticationType: null
 body:
   text: |-
     {
-      "name": "JosepDev",
-      "email": "josepdev@gmail.com",
+      "name": "JadapeCode",
+      "email": "jadapecode@gmail.com",
       "password": "123456789*"
     }
 bodyType: application/json
