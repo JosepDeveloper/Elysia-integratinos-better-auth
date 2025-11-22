@@ -1,0 +1,27 @@
+type: http_request
+model: http_request
+id: rq_5oaycqZHD4
+createdAt: 2025-11-21T19:50:23.910423834
+updatedAt: 2025-11-22T02:10:23.682299449
+workspaceId: wk_MA9Wsx2aeb
+folderId: fl_DStf4fmDj3
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "name": "Isaac Leon",
+      "email": "isaacleon@email.com"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: FNuRV09Bym
+method: POST
+name: Save Client
+sortPriority: -1763754548822.0
+url: ${[ HOST ]}/clients
+urlParameters: []

@@ -1,0 +1,18 @@
+type: http_request
+model: http_request
+id: rq_BFV7ZzFcvq
+createdAt: 2025-11-21T19:53:07.601919808
+updatedAt: 2025-11-21T19:53:26.706624219
+workspaceId: wk_MA9Wsx2aeb
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Hello World
+sortPriority: 1000.0
+url: ${[ HOST ]}
+urlParameters: []

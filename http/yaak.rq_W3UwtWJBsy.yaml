@@ -1,0 +1,18 @@
+type: http_request
+model: http_request
+id: rq_W3UwtWJBsy
+createdAt: 2025-11-21T19:49:08.823737831
+updatedAt: 2025-11-21T19:52:04.751280017
+workspaceId: wk_MA9Wsx2aeb
+folderId: fl_DStf4fmDj3
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Get Clients
+sortPriority: -1763754548822.0
+url: ${[ HOST ]}/clients
+urlParameters: []

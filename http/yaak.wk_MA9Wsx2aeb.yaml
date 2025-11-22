@@ -1,0 +1,14 @@
+type: workspace
+model: workspace
+id: wk_MA9Wsx2aeb
+createdAt: 2025-11-21T19:48:50.464142620
+updatedAt: 2025-11-21T19:48:50.464144043
+authentication: {}
+authenticationType: null
+description: ''
+headers: []
+name: learning-elysia
+encryptionKeyChallenge: null
+settingValidateCertificates: true
+settingFollowRedirects: true
+settingRequestTimeout: 0
