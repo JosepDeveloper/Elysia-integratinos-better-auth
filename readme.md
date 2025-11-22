@@ -28,9 +28,8 @@ This project is ideal for learning, experimentation, or using as a base for prod
 ---
 
 ## 🚀 Getting Started
-
+<!--
 ### 1. Clone the repository
-
 ```bash
 bun create elysia-better-auth-drizzle
 cd elysia-better-auth-drizzle
@@ -61,7 +60,7 @@ bunx drizzle-kit push
 
 ```bash
 bun run dev
-```
+```-->-->
 
 ---
 
