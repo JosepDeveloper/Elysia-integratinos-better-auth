@@ -4,8 +4,7 @@ import { authClient } from "../lib/auth-client";
 import Button from "primevue/button";
 import * as z from "zod";
 
-const { data, error, isPending, isRefetching, refetch } =
-  authClient.useSession();
+const session = authClient.useSession();
 
 const values = {
   username: "",
@@ -45,7 +44,7 @@ const handleSubmit = (event: SubmitEvent) => {
 
 <template>
   <div class="flex flex-col justify-center items-center p-10 w-full">
-    <section class="grid gap-10" v-if="!data">
+    <section class="grid gap-10" v-if="!session.data">
       <article class="grid gap-2">
         <h2>Registrarse</h2>
         <form @submit.prevent="handleSubmit" class="grid gap-4">
