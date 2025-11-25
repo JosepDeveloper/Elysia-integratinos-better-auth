@@ -19,4 +19,5 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+  advanced: { disableOriginCheck: process.env.NODE_ENV === "development" },
 });

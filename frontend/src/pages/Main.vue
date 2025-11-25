@@ -1,77 +1,67 @@
 <script lang="ts" setup>
-import InputText from "primevue/inputtext";
 import { authClient } from "../lib/auth-client";
+import FormLogin from "../components/FormLogin.vue";
+import FormSingIn from "../components/FormSingIn.vue";
 import Button from "primevue/button";
-import * as z from "zod";
 
 const session = authClient.useSession();
 
-const values = {
-  username: "",
-  email: "",
-};
+function handleSubmitRegister(data: {
+  username: string;
+  email: string;
+  password: string;
+}) {
+  authClient.signUp
+    .email({
+      name: data.username,
+      email: data.email,
+      password: data.password,
+    })
+    .then(({ data, error }) => {
+      console.log({ data, error });
+    });
+}
 
-const schema = z.object({
-  username: z.string().min(2).max(100),
-  email: z.email(),
-});
+function handleSubmitSingIn({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
+  authClient.signIn
+    .email({
+      email,
+      password,
+    })
+    .then(({ data, error }) => {
+      console.log({ data, error });
+    });
+}
 
-const errorMessage = {
-  username: "",
-  email: "",
-};
-
-const handleSubmit = (event: SubmitEvent) => {
-  const values = Object.fromEntries(
-    new FormData(event.target as HTMLFormElement),
-  );
-
-  const { data, success, error } = schema.safeParse(values);
-
-  if (!success) {
-    const { properties } = z.treeifyError(error);
-    if (!properties) return;
-
-    const { username, email } = properties;
-
-    errorMessage.username = username?.errors[0] || "";
-    errorMessage.email = email?.errors[0] || "";
-  }
-
-  console.log({ data });
-};
+function handleSingOut() {
+  authClient.signOut({});
+}
 </script>
 
 <template>
   <div class="flex flex-col justify-center items-center p-10 w-full">
     <section class="grid gap-10" v-if="!session.data">
-      <article class="grid gap-2">
-        <h2>Registrarse</h2>
-        <form @submit.prevent="handleSubmit" class="grid gap-4">
-          <div>
-            <InputText
-              name="username"
-              placeholder="Nombre de Usuario"
-              v-model="values.username"
-              inputmode="text"
-            />
-          </div>
+      <FormLogin @submit="handleSubmitRegister" />
+      <FormSingIn @submit="handleSubmitSingIn" />
+    </section>
+    <section class="grid" v-else>
+      <main class="grid gap-1">
+        <h1>Bienvenido {{ session.data.user.name }}</h1>
 
-          <div>
-            <InputText
-              name="email"
-              placeholder="Correo Electronico"
-              v-model="values.email"
-              inputmode="email"
-            />
-          </div>
+        Has iniciado sesión correctamente.
 
-          <Button type="submit" label="Registrarse" severity="success" />
-        </form>
-      </article>
-
-      <h2>Iniciar session</h2>
-      <form></form>
+        <Button
+          severity="contrast"
+          label="Cerrar sesión"
+          @click="handleSingOut"
+        />
+      </main>
     </section>
   </div>
 </template>
